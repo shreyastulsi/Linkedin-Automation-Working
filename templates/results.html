@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimized LinkedIn Sections</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="results-container">
+        <h2>Optimized LinkedIn Sections</h2>
+        {% for section, content in content.items() %}
+            <div class="section">
+                <h3>{{ section }}</h3>
+                <pre> {{ content }} </pre>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

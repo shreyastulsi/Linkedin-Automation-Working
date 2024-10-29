@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload PDF</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="upload-container">
+        <h2>Upload Your Resume PDF</h2>
+        <form action="/" method="POST" enctype="multipart/form-data" id="upload-form">
+            <div class="drag-drop-area" id="drag-drop-area">
+                <p>Drag and drop your PDF here or click to upload</p>
+                <input type="file" name="file" id="file-input" accept=".pdf">
+            </div>
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+
+    <script>
+        const fileInput = document.getElementById('file-input');
+        const dragDropArea = document.getElementById('drag-drop-area');
+
+        dragDropArea.addEventListener('click', () => fileInput.click());
+
+        dragDropArea.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            dragDropArea.classList.add('drag-over');
+        });
+
+        dragDropArea.addEventListener('dragleave', () => {
+            dragDropArea.classList.remove('drag-over');
+        });
+
+        dragDropArea.addEventListener('drop', (event) => {
+            event.preventDefault();
+            fileInput.files = event.dataTransfer.files;
+        });
+    </script>
+</body>
+</html>
