@@ -151,7 +151,7 @@ def optimize_all_sections(sections, example_experience):
     return linkedin_sections
 
 def google_nlp_optimization(text):
-    url = "https://language.googleapis.com/v1/documents:analyzeEntities?key=AIzaSyCJ2ro5TvvHgZD6YhKcF6Qztbk3C3Ui0JU"
+    url = "https://language.googleapis.com/v1/documents:analyzeEntities?key="
     headers = {"Content-Type": "application/json"}
     data = {
         "document": {"type": "PLAIN_TEXT", "content": text},
